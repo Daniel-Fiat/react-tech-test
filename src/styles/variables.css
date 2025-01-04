@@ -1,12 +1,9 @@
 :root {
   --background-color: #f0f0f0;
+  --background-blue-color: #2c73c6;
   --text-color: black;
   --blue-text: #799bb2;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color: black;
-    --text-color: white;
-  }
+  --white-text: #f0f0f0;
+  --text-light-color: #666;
+  --border-color: #e1e1e1;
 }

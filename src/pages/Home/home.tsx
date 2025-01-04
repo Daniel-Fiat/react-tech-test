@@ -1,34 +1,60 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./home.css";
-import { Button } from "react-bootstrap";
-import { useTranslation } from "react-i18next";
-
-//Components import
+import { Col, Form, Row } from "react-bootstrap";
+import PodCastService from "../../services/podcast/podcastService";
+import PodcastCard from "../../components/podcastCard/podcastCard";
+import { Podcast } from "src/interfaces/podtast";
 
 const HomePage: React.FC = () => {
-  const { t, i18n } = useTranslation();
+  const [podcasts, setPodcasts] = React.useState([]);
+  const [search, setSearch] = React.useState("");
+  const [filteredPodcasts, setFilteredPodcasts] = React.useState([]);
 
-  const changeLanguage = (lng: string) => {
-    i18n.changeLanguage(lng);
+  const getPodCasts = async () => {
+    const response = await PodCastService.getPodCasts();
+    setPodcasts(response.feed.entry);
+    setFilteredPodcasts(response.feed.entry);
   };
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setSearch(value);
+    const regex = new RegExp(search, "i");
+    const filteredResult = podcasts.filter((podcast: Podcast) => {
+      return (
+        regex.test(podcast["im:name"].label) ||
+        regex.test(podcast["im:artist"].label)
+      );
+    });
+    setFilteredPodcasts(filteredResult);
+  };
+
+  useEffect(() => {
+    getPodCasts();
+  }, []);
 
   return (
     <div className="home-container">
-      <h1>{t("HOME.TITLE")}</h1>
-      <a href="/podcast/1">Go to Podcast</a>
-      <a href="/podcast/2/episode/1">Go to Episode</a>
-      <div className="mt-3">
-        <Button variant="primary" onClick={() => changeLanguage("en")}>
-          English
-        </Button>
-        <Button
-          variant="secondary"
-          onClick={() => changeLanguage("es")}
-          className="ml-2"
-        >
-          Español
-        </Button>
-      </div>
+      <Row>
+        <div className="d-flex justify-content-end align-items-center al py-3 mb-5">
+          <div className="potcast-length mx-3">{filteredPodcasts.length}</div>
+          <Form.Group controlId="exampleForm.ControlInput1">
+            <Form.Control
+              type="text"
+              placeholder="filter podcasts"
+              value={search} // Vincula el valor al estado
+              onChange={handleSearchChange} // Ejecuta la función al escribir
+            />
+          </Form.Group>
+        </div>
+      </Row>
+      <Row>
+        {filteredPodcasts.map((podcast, index) => (
+          <Col key={index} xs={6} md={4} lg={3} className="mb-3">
+            <PodcastCard {...podcast} />
+          </Col>
+        ))}
+      </Row>
     </div>
   );
 };

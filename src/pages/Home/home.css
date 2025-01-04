@@ -1,7 +1,9 @@
 .home-container {
-  background-color: var(--background-color);
   min-height: 100vh;
-  h1 {
-    color: red;
+  .potcast-length {
+    color: var(--white-text);
+    background-color: var(--background-blue-color);
+    border-radius: 0.2rem;
+    padding: 0 0.2rem;
   }
 }
