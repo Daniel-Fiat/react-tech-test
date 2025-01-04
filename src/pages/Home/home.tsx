@@ -11,7 +11,7 @@ const HomePage = (): JSX.Element => {
   };
 
   return (
-    <Container className="d-flex flex-column justify-content-center align-items-center">
+    <Container className="d-flex flex-column justify-content-center align-items-center home-container">
       <h1>{t("HOME.TITLE")}</h1>
       <a href="/podcast/1">Go to Podcast</a>
       <a href="/podcast/2/episode/1">Go to Episode</a>
