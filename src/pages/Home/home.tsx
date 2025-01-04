@@ -3,7 +3,7 @@ import "./home.css";
 import { Container, Button } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 
-const HomePage = (): JSX.Element => {
+const HomePage: React.FC = () => {
   const { t, i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {

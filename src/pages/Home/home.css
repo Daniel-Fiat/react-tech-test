@@ -1,6 +1,6 @@
 .home-container {
   background-color: var(--background-color);
-}
-h1 {
-  color: red;
+  h1 {
+    color: red;
+  }
 }

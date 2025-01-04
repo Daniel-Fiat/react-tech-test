@@ -2,7 +2,7 @@ import React from "react";
 import "./PodcastDetail.css";
 import { Container } from "react-bootstrap";
 
-const PodcastDetailPage = (): JSX.Element => {
+const PodcastDetailPage: React.FC = () => {
   return (
     <Container className="d-flex flex-column justify-content-center align-items-center">
       <h1>PodcastDetailPage</h1>
