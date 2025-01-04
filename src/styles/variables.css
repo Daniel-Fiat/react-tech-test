@@ -1,9 +1,11 @@
 :root {
   --background-color: red;
+  --text-color: black;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: blue;
+    --text-color: white;
   }
 }

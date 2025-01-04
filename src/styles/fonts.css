@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "UEFA";
+  src: local("UEFA-Regular"),
+    url("/src/assets/fonts/UEFA-Supercup/uefasupercup-regular.ttf")
+      format("truetype");
+  font-weight: 400; /* Regular weight */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "UEFA";
+  src: local("UEFA-Bold"),
+    url("/assets/fonts/UEFA-Supercup/uefasupercup-bold.ttf") format("truetype");
+  font-weight: 700; /* Bold weight */
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "UEFA";
+  src: local("UEFA-Light"),
+    url("/assets/fonts/UEFA-Supercup/uefasupercup-light.ttf") format("truetype");
+  font-weight: 300; /* Light weight */
+  font-display: swap;
+}
