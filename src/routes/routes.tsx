@@ -1,19 +1,16 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "pages/Home/home";
-import PodcastDetail from "pages/PodcastDetail/PodcastDetail";
-import EpisodeDetail from "pages/EpisodeDetail/EpisodeDetail";
+import PodcastPage from "pages/PodcastPage/PodcastPage";
 
-const AppRoutes = (): JSX.Element => {
+const AppRoutes = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/podcast/:podcastId" element={<PodcastDetail />} />
-      <Route
-        path="/podcast/:podcastId/episode/:episodeId"
-        element={<EpisodeDetail />}
-      />
-    </Routes>
+    <div className="app-routes">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/podcast/:id/*" element={<PodcastPage />} />
+      </Routes>
+    </div>
   );
 };
 

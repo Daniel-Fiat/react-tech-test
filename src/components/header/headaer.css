@@ -1,0 +1,9 @@
+.header-container {
+  border-bottom: 1px solid var(--blue-text);
+  width: 100%;
+  .title {
+    color: var(--blue-text);
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+}
