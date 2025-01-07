@@ -4,6 +4,7 @@ import { Col, Form, Row } from "react-bootstrap";
 import PodCastService from "../../services/podcast/podcastService";
 import PodcastCard from "../../components/podcastCard/podcastCard";
 import { Podcast } from "src/interfaces/podtast";
+import { t } from "i18next";
 
 const HomePage: React.FC = () => {
   const [podcasts, setPodcasts] = React.useState([]);
@@ -12,8 +13,8 @@ const HomePage: React.FC = () => {
 
   const getPodCasts = async () => {
     const response = await PodCastService.getPodCasts();
-    setPodcasts(response.feed.entry);
-    setFilteredPodcasts(response.feed.entry);
+    setPodcasts(response);
+    setFilteredPodcasts(response);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +42,7 @@ const HomePage: React.FC = () => {
           <Form.Group controlId="exampleForm.ControlInput1">
             <Form.Control
               type="text"
-              placeholder="filter podcasts"
+              placeholder={t("HOME.SEARCH_PLACEHOLDER")}
               value={search} // Vincula el valor al estado
               onChange={handleSearchChange} // Ejecuta la función al escribir
             />

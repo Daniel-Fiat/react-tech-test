@@ -1,1 +1,19 @@
-
+.podcast-detail-container {
+  margin: 2rem;
+  .podcast-episodes {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    margin-bottom: 1rem;
+    .title {
+      margin: 0;
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+  }
+  .podcast-episodes-list {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-color);
+    padding: 1rem 0.5rem;
+    overflow: auto;
+  }
+}

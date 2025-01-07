@@ -3,6 +3,15 @@
     "TITLE": "Podcaster"
   },
   "HOME": {
-    "TITLE": "Inicio"
+    "SEARCH_PLACEHOLDER": "Filtrar podcast"
+  },
+  "PODCAST_PAGE": {
+    "DESCRIPTION": "Descripción:"
+  },
+  "PODCAST_DATAIL": {
+    "EPISODES": "Episodios: ",
+    "TITLE": "Título",
+    "DATE": "Fecha",
+    "DURATION": "Duración"
   }
 }
